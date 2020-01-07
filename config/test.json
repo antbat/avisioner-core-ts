@@ -1,0 +1,22 @@
+{
+    "logging": {
+        "default": "logs",
+        "error": "error-logs"
+    },
+    "mongoDB": {
+        "connectionString": "mongodb://localhost/test",
+        "collection": {
+            "user": "user"
+        }
+    },
+    "elasticSearch": {
+        "index": {
+            "user": "user"
+        },
+        "options": {
+            "node": "http://localhost:9200",
+            "log": "debug",
+            "keepAlive": true
+        }
+    }
+}
