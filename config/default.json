@@ -1,5 +1,5 @@
 {
-    "port": 3000,
+    "port": 3002,
     "logging": {
         "default": "logs",
         "error": "error-logs"
@@ -7,6 +7,8 @@
     "mongoDB": {
         "connectionString": "mongodb://localhost/core",
         "collection": {
+            "item": "item",
+            "relation": "relation",
             "user": "user"
         }
     },
@@ -19,5 +21,9 @@
             "log": "debug",
             "keepAlive": true
         }
+    },
+    "JWT": {
+        "secret": "5ac4fv57a633r30412fe5152900cbg3ca9bd",
+        "expiresIn": "60d"
     }
 }

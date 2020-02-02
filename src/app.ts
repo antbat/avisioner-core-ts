@@ -2,14 +2,15 @@ import express, { NextFunction, Response, Request } from 'express';
 import { Application } from 'express';
 import { Logger } from 'winston'
 import { HttpError } from './utils/HttpError';
-import { IController } from './utils/Controllers';
+import { IController } from './utils/Controller';
 import { getLogger } from './utils/logger/logger';
 import cors from "cors";
 import bodyParser from "body-parser";
 import { ElasticsearchService } from "./utils/elasticsearch.service";
 import { client } from "./connections/elasticSearch.connection";
 import { mongooseConnection } from "./connections/mongoDB.connection";
-import { RootController } from "./domains/root/root.controller";
+import { checkJwt } from './utils/middleware/auth.middleware';
+import {ItemController} from "./domains/item/controllers/item.controller";
 
 const logger = getLogger(module);
 
@@ -58,12 +59,13 @@ export async function getApp(): Promise<App> {
 
     // express application init
     const controllers = [
-        new RootController()
+        new ItemController()
     ];
     const middleware: any[] = [
         cors(),
-        bodyParser.json({limit: '50mb'}),
-        bodyParser.urlencoded({extended: false})
+        bodyParser.json({ limit: '50mb' }),
+        bodyParser.urlencoded({extended: false}),
+        checkJwt
     ];
     return new App(controllers, middleware, logger);
 }

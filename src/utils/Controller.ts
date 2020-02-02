@@ -5,7 +5,7 @@
 
 import express, { Router, Application } from 'express';
 
-export class Controllers {
+export class Controller {
     public router: Router = express.Router();
     public readonly _base: string;
 

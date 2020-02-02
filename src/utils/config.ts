@@ -12,6 +12,8 @@ export interface Config {
     mongoDB: {
         connectionString: string,
         collection: {
+            item: string,
+            relation: string,
             user: string
         }
     },
@@ -24,6 +26,10 @@ export interface Config {
             log: string,
             keepAlive: boolean
         }
+    },
+    JWT: {
+        secret: string,
+        expiresIn: string
     }
 }
 export const config: Config = currentConfig as any;

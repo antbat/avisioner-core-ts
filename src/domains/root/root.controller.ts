@@ -1,8 +1,8 @@
 import { Application, Request, Response, NextFunction } from 'express';
-import { Controllers, IController } from '../../utils/Controllers';
+import { Controller, IController } from '../../utils/Controller';
 
 
-export class RootController extends Controllers implements IController {
+export class RootController extends Controller implements IController {
     constructor() {
         super('/');
     }
