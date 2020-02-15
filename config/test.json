@@ -6,7 +6,9 @@
     "mongoDB": {
         "connectionString": "mongodb://localhost/test",
         "collection": {
-            "user": "user"
+            "item": "item-test",
+            "relation": "relation-test",
+            "user": "user-test"
         }
     },
     "elasticSearch": {

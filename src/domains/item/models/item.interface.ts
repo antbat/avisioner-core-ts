@@ -9,13 +9,14 @@ export enum TypeOfItem {
     img = 'img',
     video = 'video',
     geo = 'geo',
-    technical = 'technical'
+    technical = 'technical',
 }
 export interface IItem {
     name: string;
     description: string;
     typeOfItem: TypeOfItem;
     authMarkers: string[];
+    previousVersionOf: string;
 }
 
 export interface IItemDocument extends IItem, Document {}

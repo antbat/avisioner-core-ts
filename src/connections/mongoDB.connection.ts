@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { config } from '../utils/config';
-import { getLogger } from '../utils/logger/logger';
+import {config} from '../utils/config';
+import {getLogger} from '../utils/logger/logger';
 
 const logger = getLogger(module);
 mongoose.Promise = Promise;
@@ -12,7 +12,7 @@ if (process.env.MONGOOSE_DEBUG) {
 const db = mongoose.connection;
 
 db.on('connected', () => logger.debug('Mongoose connection was opened'));
-db.on('error', err => logger.error('Mongoose connection has occured ', err));
+db.on('error', (err) => logger.error('Mongoose connection has occurred ', err));
 db.on('disconnected', () => logger.info('Mongoose was disconnected'));
 
 process.on('SIGINT', () => {
@@ -23,7 +23,7 @@ process.on('SIGINT', () => {
 });
 
 export const mongooseConnection = mongoose.connect(config.mongoDB.connectionString);
+
 export function isObjectId(str: string): boolean {
     return mongoose.Types.ObjectId.isValid(str);
 }
-
