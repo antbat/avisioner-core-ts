@@ -17,6 +17,7 @@ export interface IItem {
     typeOfItem: TypeOfItem;
     authMarkers: string[];
     previousVersionOf: string;
+    data: any;
 }
 
 export interface IItemDocument extends IItem, Document {}

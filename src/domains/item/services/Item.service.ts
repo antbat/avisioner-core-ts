@@ -14,15 +14,18 @@ export class ItemService {
         if (!newItem) {
             throw new Error('no item data !! for update');
         }
-        const formerItem = await Item.findById(newItem.id).lean();
-        if (!formerItem) {
+        const item = await Item.findById(newItem._id).lean();
+        if (!item) {
             throw new Error(`there is no item with ${newItem.id}`);
         }
-        delete formerItem._id;
-        formerItem.previousVersionOf = newItem.id;
-        await Item.create(formerItem);
-        await Item.create(newItem);
-        return newItem;
+        delete item._id;
+        item.previousVersionOf = newItem._id;
+        await Item.create(item);
+
+        const preUpdatedItem = new Item(newItem);
+        preUpdatedItem.isNew = false;
+        await preUpdatedItem.save();
+        return preUpdatedItem;
     }
     public static async getBulkByIds(ids: string[]): Promise<IItem[]> {
         return Item.find({_id: { $in: ids}});

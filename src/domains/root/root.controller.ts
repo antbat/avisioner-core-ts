@@ -1,12 +1,11 @@
-import { Application, Request, Response, NextFunction } from 'express';
+import { Application, NextFunction, Request, Response } from 'express';
 import { Controller, IController } from '../../utils/Controller';
-
 
 export class RootController extends Controller implements IController {
     constructor() {
         super('/');
     }
-    registerRoutes(app: Application): void {
+    public registerRoutes(app: Application): void {
         app.route(this.url('')).get(this.getMessage);
     }
 
@@ -14,7 +13,7 @@ export class RootController extends Controller implements IController {
         try {
             return  res.send({msg: 'seed'});
         } catch (err) {
-            next(err)
+            next(err);
         }
     }
 }

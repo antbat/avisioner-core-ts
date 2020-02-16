@@ -26,7 +26,7 @@ describe('Item', async () => {
         await cleanup();
     });
     describe('update', async () => {
-        it('should update with history trail', async () => {
+        it.only('should update with history trail', async () => {
             const nextName = 'next test item';
             const item = await itemFabric();
             item.name = nextName;

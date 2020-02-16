@@ -17,6 +17,7 @@ const itemSchema = new Schema({
     owner: ReferenceToUser,
     editors: [ReferenceToUser],
     viewers: [ReferenceToUser],
+    data: { type: Schema.Types.Mixed },
 });
 
 export const Item: Model<IItemDocument> = model<IItemDocument>(config.mongoDB.collection.item, itemSchema);

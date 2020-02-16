@@ -14,6 +14,7 @@ export class ItemController extends Controller implements IController {
         app.route(this.url('/')).post(this.create);
         app.route(this.url('/:id')).get(this.getById);
         app.route(this.url('/getBulk')).post(this.getBulkByIds);
+        app.route(this.url('/')).put(this.update);
     }
 
     public async create(req: Request, res: Response, next: NextFunction) {
