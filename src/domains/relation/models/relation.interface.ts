@@ -4,6 +4,6 @@ export interface IRelation {
     from: string;
     to: string;
     rate: number;
-    authMarker: string;
+    authMarkers: string[];
 }
 export interface IRelationModel extends IRelation, Document {}
