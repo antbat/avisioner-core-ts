@@ -4,11 +4,10 @@
         "error": "error-logs"
     },
     "mongoDB": {
-        "connectionString": "mongodb://localhost/test",
+        "connectionString": "mongodb://localhost/test-core",
         "collection": {
             "item": "item-test",
-            "relation": "relation-test",
-            "user": "user-test"
+            "relation": "relation-test"
         }
     },
     "elasticSearch": {

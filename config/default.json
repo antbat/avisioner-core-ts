@@ -5,7 +5,7 @@
         "error": "error-logs"
     },
     "mongoDB": {
-        "connectionString": "mongodb://localhost/core",
+        "connectionString": "mongodb://localhost/avisioner",
         "collection": {
             "item": "item",
             "relation": "relation",
