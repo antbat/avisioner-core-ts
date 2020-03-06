@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {config} from '../utils/config';
+import {config} from '../utils/IConfig';
 import {getLogger} from '../utils/logger/logger';
 
 const logger = getLogger(module);
