@@ -15,6 +15,7 @@ export interface IItem {
     name: string;
     description: string;
     typeOfItem: TypeOfItem;
+    tuple: string[];
     authMarkers: string[];
     previousVersionOf: string;
     data: any;

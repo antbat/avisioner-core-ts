@@ -1,9 +1,8 @@
 import {Model, model, Schema} from 'mongoose';
-import {config} from '../../../utils/config';
+import {config} from '../../../utils/IConfig';
 import {IItemDocument} from './item.interface';
 
 const ObjectId = Schema.Types.ObjectId;
-const ReferenceToUser = {type: ObjectId, ref: config.mongoDB.collection.user};
 
 const itemSchema = new Schema({
     name: {type: String, index: true},
@@ -13,10 +12,8 @@ const itemSchema = new Schema({
         enum: ['text', 'number', 'boolean', 'date', 'currency', 'img', 'video', 'geo', 'technical'],
     },
     tuple: [{type: ObjectId}],
+    authMarkers: [{type: ObjectId}],
     previousVersionOf: ObjectId,
-    owner: ReferenceToUser,
-    editors: [ReferenceToUser],
-    viewers: [ReferenceToUser],
     data: { type: Schema.Types.Mixed },
 });
 
