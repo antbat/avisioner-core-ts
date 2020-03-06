@@ -1,7 +1,7 @@
-import { config } from './utils/config';
-import { getApp } from "./app";
+import { getApp } from './app';
+import { config } from './utils/IConfig';
 
-( async () => {
+(async () => {
     const application = await getApp();
     await application.listen(config.port);
 })();
