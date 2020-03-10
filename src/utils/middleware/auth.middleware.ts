@@ -1,5 +1,5 @@
 import expressJwt from 'express-jwt';
-import { config } from '../IConfig';
+import { config } from '../Config';
 export const checkJwt = expressJwt({
     secret: config.JWT.secret
 });

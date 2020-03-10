@@ -34,9 +34,24 @@ export class RelationService {
         if (!forDelete) {
             throw new Error(`Relation with id ${relationId} was not found`);
         }
-        if (await PermissionService.checkRelation(who, Action.delete, [forDelete])) {
+        if (
+            await PermissionService.checkRelation(who, Action.delete, [
+                forDelete
+            ])
+        ) {
             return forDelete.remove();
         }
         return null;
+    }
+    public static async getByAMs(
+        who: string,
+        AMs: string[] = []
+    ): Promise<IRelationModel[]> {
+        if (
+            !(await PermissionService.checkActionByAMs(who, Action.view, AMs))
+        ) {
+            throw new Error(`${who} doesn't have permission`);
+        }
+        return Relation.find({ authMarkers: { $in: AMs } });
     }
 }

@@ -1,5 +1,5 @@
 import { getApp } from './app';
-import { config } from './utils/IConfig';
+import { config } from './utils/Config';
 
 (async () => {
     const application = await getApp();

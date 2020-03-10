@@ -1,5 +1,5 @@
 import { Model, model, Schema} from 'mongoose';
-import { config } from '../../../utils/IConfig';
+import { config } from '../../../utils/Config';
 import { IRelationModel} from './relation.interface';
 
 const ObjectId = Schema.Types.ObjectId;

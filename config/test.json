@@ -1,8 +1,4 @@
 {
-    "logging": {
-        "default": "logs",
-        "error": "error-logs"
-    },
     "mongoDB": {
         "connectionString": "mongodb://localhost/test-core",
         "collection": {

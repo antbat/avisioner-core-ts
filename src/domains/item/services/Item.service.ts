@@ -1,15 +1,14 @@
-import {IItem, IItemDocument} from '../models/item.interface';
-import {Item} from '../models/item.model';
+import { Action, PermissionService } from '../../permissions/permissionService';
+import { IItem, IItemDocument } from '../models/item.interface';
+import { Item } from '../models/item.model';
 
 export class ItemService {
     public static async create(item: IItem) {
         return Item.create(item);
     }
-
     public static async getById(id: string) {
         return Item.findById(id);
     }
-
     public static async update(newItem: IItemDocument) {
         if (!newItem) {
             throw new Error('no item data !! for update');
@@ -28,6 +27,17 @@ export class ItemService {
         return preUpdatedItem;
     }
     public static async getBulkByIds(ids: string[]): Promise<IItem[]> {
-        return Item.find({_id: { $in: ids}});
+        return Item.find({ _id: { $in: ids } });
+    }
+    public static async getItemsByAMs(
+        who: string,
+        AMs: string[] = []
+    ): Promise<IItem[]> {
+        if (
+            !(await PermissionService.checkActionByAMs(who, Action.view, AMs))
+        ) {
+            throw new Error(`${who} doesn't have permission`);
+        }
+        return Item.find({ authMarkers: { $in: AMs } });
     }
 }

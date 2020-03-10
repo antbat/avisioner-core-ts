@@ -1,5 +1,5 @@
 import {Model, model, Schema} from 'mongoose';
-import {config} from '../../../utils/IConfig';
+import {config} from '../../../utils/Config';
 import {IItemDocument} from './item.interface';
 
 const ObjectId = Schema.Types.ObjectId;

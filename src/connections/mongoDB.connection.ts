@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import {config} from '../utils/IConfig';
-import {getLogger} from '../utils/logger/logger';
+import { config } from '../utils/Config';
+import { getLogger } from '../utils/logger/logger';
 
 const logger = getLogger(module);
 mongoose.Promise = Promise;
@@ -12,17 +12,22 @@ if (process.env.MONGOOSE_DEBUG) {
 const db = mongoose.connection;
 
 db.on('connected', () => logger.debug('Mongoose connection was opened'));
-db.on('error', (err) => logger.error('Mongoose connection has occurred ', err));
+db.on('error', err => logger.error('Mongoose connection has occurred ', err));
 db.on('disconnected', () => logger.info('Mongoose was disconnected'));
 
 process.on('SIGINT', () => {
     db.close().then(() => {
-        logger.info('Mongoose connection is disconnected due to application termination');
+        logger.info(
+            'Mongoose connection is disconnected due to application termination'
+        );
         process.exit(0);
     });
 });
 
-export const mongooseConnection = mongoose.connect(config.mongoDB.connectionString);
+export const mongooseConnection = mongoose.connect(
+    config.mongoDB.connectionString,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 export function isObjectId(str: string): boolean {
     return mongoose.Types.ObjectId.isValid(str);

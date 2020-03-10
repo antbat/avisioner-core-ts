@@ -10,6 +10,7 @@ export class RelationController extends Controller implements IController {
     }
 
     public registerRoutes(app: Application): void {
+        app.route(this.url('/byAMs')).get(this.getRelationsByAMs);
         app.route(this.url('/')).post(this.create);
         app.route(this.url('/')).put(this.update);
         app.route(this.url('/:id')).put(this.delete);
@@ -48,6 +49,16 @@ export class RelationController extends Controller implements IController {
             const userId = ((req as unknown) as any).user.id;
             const result = await RelationService.remove(userId, relationId);
             res.send(result);
+        } catch (err) {
+            next(err);
+        }
+    }
+    public async getRelationsByAMs(req: Request, res: Response, next: NextFunction) {
+        try {
+            const who = (req as unknown as any).user.id;
+            const AMs = req.query.AMs;
+            const items = await RelationService.getByAMs(who, AMs);
+            res.send(items);
         } catch (err) {
             next(err);
         }

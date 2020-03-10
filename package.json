@@ -13,6 +13,7 @@
     "author": "Anton Batalin",
     "license": "ISC",
     "dependencies": {
+        "@antbat/ts-logger-es": "^1.0.0",
         "body-parser": "^1.19.0",
         "config": "^3.2.6",
         "cors": "^2.8.5",

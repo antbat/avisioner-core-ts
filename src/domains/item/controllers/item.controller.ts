@@ -12,9 +12,11 @@ export class ItemController extends Controller implements IController {
 
     public registerRoutes(app: Application): void {
         app.route(this.url('/')).post(this.create);
+        app.route(this.url('/byAMs')).get(this.getItemsByAMs);
         app.route(this.url('/:id')).get(this.getById);
         app.route(this.url('/getBulk')).post(this.getBulkByIds);
         app.route(this.url('/')).put(this.update);
+
     }
 
     public async create(req: Request, res: Response, next: NextFunction) {
@@ -26,7 +28,6 @@ export class ItemController extends Controller implements IController {
             next(err);
         }
     }
-
     public async getById(req: Request, res: Response, next: NextFunction) {
         try {
             const id = req.params.id;
@@ -65,6 +66,16 @@ export class ItemController extends Controller implements IController {
             }
             const item = await ItemService.update(itemData);
             res.send(item);
+        } catch (err) {
+            next(err);
+        }
+    }
+    public async getItemsByAMs(req: Request, res: Response, next: NextFunction) {
+        try {
+            const who = (req as unknown as any).user.id;
+            const AMs = req.query.AMs;
+            const items = await ItemService.getItemsByAMs(who, AMs);
+            res.send(items);
         } catch (err) {
             next(err);
         }

@@ -26,7 +26,7 @@ describe('Relation', async () => {
         await cleanup();
     });
     describe('create', async () => {
-        it.only('should create relation', async () => {
+        it('should create relation', async () => {
             const who = '5e550576414ab116c0014273';
             const from = await itemFabric('from');
             const to = await itemFabric('to');

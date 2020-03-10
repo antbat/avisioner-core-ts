@@ -47,7 +47,7 @@ export class App {
 
     public listen(port: number) {
         this.application.listen(port, () => {
-            this.logger.info(`the application are listening on ${port}`);
+            this.logger.info(`the core service is listening on ${port}`);
         });
     }
 }
@@ -70,3 +70,6 @@ export async function getApp(): Promise<App> {
     ];
     return new App(controllers, middleware);
 }
+process.on('unhandledRejection', (error: any) => {
+    logger.error('unhandled rejection:', error);
+});
