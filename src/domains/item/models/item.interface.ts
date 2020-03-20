@@ -10,6 +10,7 @@ export enum TypeOfItem {
     video = 'video',
     geo = 'geo',
     technical = 'technical',
+    context = 'context'
 }
 export interface IItem {
     name: string;
