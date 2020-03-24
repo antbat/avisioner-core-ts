@@ -1,5 +1,4 @@
 {
-    "port": 3002,
     "logging": {
         "level": "debug",
         "debugIndex": "logs",

@@ -1,4 +1,5 @@
 {
+    "port": 3002,
     "mongoDB": {
         "connectionString": "mongodb://localhost/avisioner"
     },
