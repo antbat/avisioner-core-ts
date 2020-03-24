@@ -15,5 +15,8 @@
                 "password": "ES_PASSWORD"
             }
         }
+    },
+    "logging": {
+        "level": "debug"
     }
 }

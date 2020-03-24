@@ -3,5 +3,6 @@ import { config } from './utils/Config';
 
 (async () => {
     const application = await getApp();
-    await application.listen(config.port);
+    const port = (process.env.PORT && parseInt(process.env.PORT, 10)) || config.port
+    await application.listen(port)
 })();
