@@ -4,7 +4,13 @@
     "description": "typescript express server with logger and connections ",
     "main": "dist/server.js",
     "scripts": {
-        "test": "mocha -r ts-node/register src/domains/**/*.spec.ts"
+        "postinstall": "npm run build",
+        "build": "tsc",
+        "test": "mocha -r ts-node/register src/domains/**/*.spec.ts",
+        "start": "npm run serve",
+        "serve": "node dist/server.js",
+        "coverage": "nyc npm run test",
+        "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls"
     },
     "keywords": [
         "seed",
