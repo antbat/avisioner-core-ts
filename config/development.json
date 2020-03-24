@@ -1,0 +1,10 @@
+{
+    "mongoDB": {
+        "connectionString": "mongodb://localhost/avisioner"
+    },
+    "elasticSearch": {
+        "options": {
+            "node": "http://localhost:9200"
+        }
+    }
+}

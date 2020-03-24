@@ -1,0 +1,15 @@
+{
+    "port": "PORT",
+    "mongoDB": {
+        "connectionString": "MONGODB_CONNECTION"
+    },
+    "elasticSearch": {
+        "options": {
+            "node": "ES_NODE",
+            "auth": {
+                "username": "ES_USER",
+                "password": "ES_PASSWORD"
+            }
+        }
+    }
+}

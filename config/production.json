@@ -1,0 +1,19 @@
+{
+    "api": {
+        "core": {
+            "url": "https://core-avisioner.herokuapp.com/"
+        }
+    },
+    "mongoDB": {
+        "connectionString": "MONGODB_CONNECTION"
+    },
+    "elasticSearch": {
+        "options": {
+            "node": "ES_NODE",
+            "auth": {
+                "username": "ES_USER",
+                "password": "ES_PASSWORD"
+            }
+        }
+    }
+}

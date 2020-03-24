@@ -7,7 +7,6 @@
         "serviceName": "core"
     },
     "mongoDB": {
-        "connectionString": "mongodb://localhost/avisioner",
         "collection": {
             "item": "item",
             "relation": "relation",
@@ -19,7 +18,6 @@
             "user": "user"
         },
         "options": {
-            "node": "http://localhost:9200",
             "log": "debug",
             "keepAlive": true
         }
