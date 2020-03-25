@@ -1,7 +1,7 @@
 {
     "api": {
         "core": {
-            "url": "https://core-avisioner.herokuapp.com/"
+            "url": "https://core-avisioner.herokuapp.com"
         }
     },
     "mongoDB": {
