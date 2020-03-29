@@ -12,11 +12,7 @@
             "console": "integratedTerminal",
             "env": {
                 "NODE_ENV": "development",
-                "NODE_CONFIG_DIR": "${workspaceFolder}/config",
-                "MONGODB_CONNECTION": "mongodb+srv://server_avisioner:tsoYBka44wlG3rH2@cluster0-ah3e8.mongodb.net/avisioner",
-                "ES_NODE": "https://6cf105859eef4bfb85519ff2224c4c0b.eu-west-2.aws.cloud.es.io:9243",
-                "ES_USER": "elastic",
-                "ES_PASSWORD": "TGzRP7YihieTMv10wt9tLSNj"
+                "NODE_CONFIG_DIR": "${workspaceFolder}/config"
             }
         },
         {
