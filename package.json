@@ -18,7 +18,7 @@
         "config": "^3.2.6",
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "express-jwt": "^5.3.1",
+        "express-jwt": "^6.0.0",
         "mongoose": "^5.9.2",
         "typescript": "^3.8.2",
         "winston": "^3.2.1",
